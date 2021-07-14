@@ -1,4 +1,4 @@
-def iterator(data: list, i: int, j: int, clockwise: bool = True) -> list:
+def citerator(data: list, i: int, j: int, clockwise: bool = True) -> list:
     """Analyse data using a range based percentual proximity
     algorithm and calculate the linear maximum likelihood estimation.
 
@@ -7,9 +7,6 @@ def iterator(data: list, i: int, j: int, clockwise: bool = True) -> list:
 
     Optional args:
         clockwise (bool): Iterate clockwise / anticlockwise.
-
-    Raises:
-        ValueError: Weights can only be either 0 or 1
 
     Yields:
         list: Matrix layer.
