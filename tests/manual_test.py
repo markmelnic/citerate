@@ -23,5 +23,8 @@ ANTICLOCKWISE_SET = [
 ]
 
 if __name__ == "__main__":
-    for layer in citerate.citerator(CLOCKWISE_SET, i = 2, j = 2, clockwise=False):
+    for v in citerate.citerator(CLOCKWISE_SET, x = 2, y = 2, clockwise=False):
+        print(v)
+
+    for layer in citerate.citerator(CLOCKWISE_SET, x = 2, y = 2, clockwise=False, layer=True):
         print(layer)
