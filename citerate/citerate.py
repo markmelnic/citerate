@@ -1,6 +1,6 @@
-def citerator(data: list, x: int, y: int, clockwise: bool = True, layer = False) -> list:
+def citerator(data: list, x: int, y: int, layer = False) -> list:
     """Bi-dimensional matrix iterator starting from any point (i, j),
-    going layer by layer around the starting coordinates.
+    iterating layer by layer around the starting coordinates.
 
     Args:
         data (list): Data set to iterate over.
@@ -8,7 +8,6 @@ def citerator(data: list, x: int, y: int, clockwise: bool = True, layer = False)
         y (int): Y starting coordinate.
 
     Optional args:
-        clockwise (bool): Iterate clockwise / anticlockwise.
         layered (bool): Yield value by value or entire layer.
 
     Yields:
