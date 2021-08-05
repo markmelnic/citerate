@@ -36,4 +36,4 @@ Outputs:
 # Footnotes
 
 - It is NOT mandatory to iterate starting from the central coordinates or for the matrix to be uniform.
-- It HAS to be bi-dimenstional and consist of "list of lists".
+- It HAS to be bi-dimenstional and follow a "list of lists" pattern.
