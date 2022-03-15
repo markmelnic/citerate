@@ -29,8 +29,8 @@ def citerator(data: list, x: int, y: int, layer = False) -> list:
                 or wpos < 0
                 or i >= len(data)
                 or wpos >= len(data))
-            and not (wpos >= len(data)
-                    or i >= len(data[wpos]))):
+                and not (wpos >= len(data)
+                or i >= len(data[wpos]))):
                 l.append(data[wpos][i])
         # right column
         hpos = y + depth + 1
@@ -39,8 +39,8 @@ def citerator(data: list, x: int, y: int, layer = False) -> list:
                 or hpos < 0
                 or i >= len(data)
                 or hpos >= len(data))
-            and not (hpos >= len(data)
-                    or hpos >= len(data[i]))):
+                and not (hpos >= len(data)
+                or hpos >= len(data[i]))):
                 l.append(data[i][hpos])
         # bottom row
         wpos = x + depth + 1
@@ -49,8 +49,8 @@ def citerator(data: list, x: int, y: int, layer = False) -> list:
                 or wpos < 0
                 or i >= len(data)
                 or wpos >= len(data))
-            and not (wpos >= len(data)
-                    or i >= len(data[wpos]))):
+                and not (wpos >= len(data)
+                or i >= len(data[wpos]))):
                 l.append(data[wpos][i])
         # left column
         hpos = y - depth - 1
@@ -59,8 +59,8 @@ def citerator(data: list, x: int, y: int, layer = False) -> list:
                 or hpos < 0
                 or i >= len(data)
                 or hpos >= len(data))
-            and not (hpos >= len(data)
-                    or hpos >= len(data[i]))):
+                and not (hpos >= len(data)
+                or hpos >= len(data[i]))):
                 l.append(data[i][hpos])
 
         if l:
