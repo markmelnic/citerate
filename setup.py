@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-from scalg.version import __version__
+from citerate.version import __version__
 
 setup(
     name="citerate",
