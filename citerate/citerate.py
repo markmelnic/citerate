@@ -1,4 +1,6 @@
-def citerator(data: list, x: int, y: int, layer = False) -> list:
+from typing import Generator
+
+def citerator(data: list, x: int = 0, y: int = 0, layer: bool = False) -> Generator:
     """Bi-dimensional matrix iterator starting from any point (i, j),
     iterating layer by layer around the starting coordinates.
 
@@ -15,53 +17,55 @@ def citerator(data: list, x: int, y: int, layer = False) -> list:
         list: Matrix layer.
     """
 
-    if layer:
-        yield [data[x][y]]
-    else:
-        yield data[x][y]
+    LEN = len(data)
 
-    for depth in range(len(data)):
+    if layer:
+        yield [data[y][x]]
+    else:
+        yield data[y][x]
+
+    for depth in range(LEN):
         l = []
         # top row
-        wpos = x - depth - 1
-        for i in range(y - depth - 1, y + depth + 1):
-            if (not (i < 0
-                or wpos < 0
-                or i >= len(data)
-                or wpos >= len(data))
-                and not (wpos >= len(data)
-                or i >= len(data[wpos]))):
-                l.append(data[wpos][i])
-        # right column
-        hpos = y + depth + 1
+        xpos = y - depth - 1
         for i in range(x - depth - 1, x + depth + 1):
             if (not (i < 0
-                or hpos < 0
-                or i >= len(data)
-                or hpos >= len(data))
-                and not (hpos >= len(data)
-                or hpos >= len(data[i]))):
-                l.append(data[i][hpos])
-        # bottom row
-        wpos = x + depth + 1
-        for i in reversed(range(y - depth, y + depth + 2)):
+                or xpos < 0
+                or i >= LEN
+                or xpos >= LEN)
+                and not (xpos >= LEN
+                or i >= len(data[xpos]))):
+                l.append(data[xpos][i])
+        # right column
+        ypos = x + depth + 1
+        for i in range(y - depth - 1, y + depth + 1):
             if (not (i < 0
-                or wpos < 0
-                or i >= len(data)
-                or wpos >= len(data))
-                and not (wpos >= len(data)
-                or i >= len(data[wpos]))):
-                l.append(data[wpos][i])
-        # left column
-        hpos = y - depth - 1
+                or ypos < 0
+                or i >= LEN
+                or ypos >= LEN)
+                and not (ypos >= LEN
+                or ypos >= len(data[i]))):
+                l.append(data[i][ypos])
+        # bottom row
+        xpos = y + depth + 1
         for i in reversed(range(x - depth, x + depth + 2)):
             if (not (i < 0
-                or hpos < 0
-                or i >= len(data)
-                or hpos >= len(data))
-                and not (hpos >= len(data)
-                or hpos >= len(data[i]))):
-                l.append(data[i][hpos])
+                or xpos < 0
+                or i >= LEN
+                or xpos >= LEN)
+                and not (xpos >= LEN
+                or i >= len(data[xpos]))):
+                l.append(data[xpos][i])
+        # left column
+        ypos = x - depth - 1
+        for i in reversed(range(y - depth, y + depth + 2)):
+            if (not (i < 0
+                or ypos < 0
+                or i >= LEN
+                or ypos >= LEN)
+                and not (ypos >= LEN
+                or ypos >= len(data[i]))):
+                l.append(data[i][ypos])
 
         if l:
             if layer:
